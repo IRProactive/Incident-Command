@@ -1,0 +1,133 @@
+
+{
+    "name": "command_control",
+    "display_name": "Command & Control Detection Template",
+    "description": "This case template describes first-response tasks to handle the suspected or positive detection of a Command and Control vector.",
+    "author": "Globex-CSIRT",
+    "classification": "intrusion-command-control",
+    "title_prefix": "[C2]",
+    "summary": "# Context \n\n\n# Contact \n\n\n# Actions \n\n\n",
+    "tags": ["ransomware","malware","command-control","APT"],
+    "tasks": [
+        {   "title": "Analyze Network IDS Alert",
+            "description": "Examine Security Onion IDS Alert for Alert Type and Source/Destination IP Address",
+            "tags": ["identify", "Security Onion"]
+        },
+        {
+            "title": "Identify impacted system(s)",
+            "description": "Identify from network controls (Firewall, IDS) what systems have been impacted",
+            "tags": ["identify", "Security Onion"]
+        },
+        {
+            "title": "Isolate impacted system(s)",
+            "description": "Utilize Velociraptor to isolate impacted system(s)",
+            "tags": ["isolate", "velociraptor"]
+        },
+        {
+            "title": "Collect triage package",
+            "description": "Deploy Velociraptor and start collecting the Basic Triage package",
+            "tags": ["collect", "velociraptor", "triage"]
+        },
+        {
+            "title": "Analyze Packet Capture",
+            "description": "Analyze any packet captures for IOCs related to the C2 traffic",
+            "tags": ["analyze", "Wireshark", "Network Miner"]
+        },
+        {  
+            "title": "Identify Suspicious Executions",
+            "description": "Examine artifacts related to execution to determine suspected malware",
+            "tags": ["analyze", "execution artifacts", "triage"]
+        },
+        {
+            "title": "Analyze Windows Event Logs",
+            "description": "Analyze the Windows PowerShell Operational Logs for indicators of beacon download",
+            "tags": ["analyze", "EZ Tools", "triage"]
+        },
+        {
+            "title": "Analyze Windows Security Event Logs",
+            "description": "Analyze Windows Security Event Logs for suspicious IAM",
+            "tags": ["analyze" , "EZ Tools"]
+        },
+        {
+            "title": "Limit Lateral Movement",
+            "description": "Leverage IOCs from analysis to determine lateral movement technique and disable access",
+            "tags": ["contain", "lateral movement"]
+        },
+        {
+            "title": "Network Containment",
+            "description": "Remove threat actor acess through network containment",
+            "tags": ["contain", "firewall"]
+        },
+        {
+            "title": "Disable Credentials",
+            "description": "Disable any suspected compromised accounts",
+            "tags": ["contain", "Active Directory"]
+        },
+        {
+            "title": "Restore from backups",
+            "description": "Restore affected systems and data from secure backups",
+            "tags": ["recovery", "backups"]
+        },
+        {
+            "title": "CTI Enrichment",
+            "description": "Enrich Analysis with CTI",
+            "tags": ["analyze", "VirusTotal", "Hybrid Analysis"]
+        },
+        {
+            "title": "Malware/Script Analysis",
+            "description": "Use automated sandbox Hybrid Analysis to identify IOCs related to malware", 
+            "tags": ["analyze", "Hybrid Analysis", "malware analysis"]
+        }
+    ],
+    "note_groups": [
+        {
+            "title": "Identify",
+            "notes": [
+                {
+                    "title": "Identify the compromised endpoints",
+                    "content": "# Observations\n\n"
+                }
+            ]
+        },
+        {
+            "title": "Identify",
+            "notes": [
+                {
+                    "title": "Identify the Network IOCs",
+                    "content": "# Observations\n\n"
+                }
+            ]
+        },
+        {
+            "title": "Identify",
+            "notes": [
+                {
+                    "title": "Identify Malware variants",
+                    "content": "# Observations\n\n"
+                }
+            ]
+        },
+        {
+            "title": "Identify",
+            "notes": [
+                {
+                    "title": "Identify the compromised accounts",
+                    "content": "# Observations\n\n"
+                }
+            ]
+        },
+        {
+            "title": "Collect",
+            "notes": [
+                {
+                    "title": "Velociraptor deployment"
+                },
+                {
+                    "title": "Assets collected",
+                    "content": "# Assets collected\n\n# Assets not collected"
+                }
+            ]
+        }
+    ]
+}
+                                    
