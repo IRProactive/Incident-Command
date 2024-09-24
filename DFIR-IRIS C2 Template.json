@@ -1,7 +1,7 @@
 
 {
     "name": "command_control",
-    "display_name": "Command & Control Detection Template",
+    "display_name": "Command & Control Detection",
     "description": "This case template describes first-response tasks to handle the suspected or positive detection of a Command and Control vector.",
     "author": "Globex-CSIRT",
     "classification": "intrusion-command-control",
